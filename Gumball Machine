@@ -1,0 +1,27 @@
+#include <Servo.h> 
+Servo servo; 
+int pos; 
+int Signal = 8; 
+int servopin = 9;
+
+void setup() { 
+    pinMode(Signal, INPUT); 
+    servo.attach(servopin);
+    servo.write(0);         
+    delay(1000);
+    servo.detach();
+     } 
+void loop() { 
+    int buttonState = digitalRead(Signal);
+     delay(1); 
+    if (buttonState == 0) 
+    { 
+  servo.attach(servopin);
+  delay(1);
+  servo.write(90);  
+  delay(3000);       
+  servo.write(0);    
+  delay(1000);
+  servo.detach();
+    }
+    }
